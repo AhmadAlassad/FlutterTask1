@@ -1,5 +1,6 @@
 import 'package:course_testing/login_form.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class MainScreen extends StatefulWidget {
   const MainScreen({Key? key}) : super(key: key);
@@ -11,6 +12,16 @@ class MainScreen extends StatefulWidget {
 class _MainScreenState extends State<MainScreen> {
   @override
   Widget build(BuildContext context) {
+
+    ScreenUtil.init(
+        BoxConstraints(
+            maxHeight: MediaQuery.of(context).size.height,
+            maxWidth: MediaQuery.of(context).size.width),
+        designSize: const Size(360, 580),
+        context: context,
+        minTextAdapt: true,
+        orientation: Orientation.portrait);
+
     return Scaffold(
         backgroundColor: Colors.grey[200],
         body: Stack(
@@ -109,7 +120,7 @@ class _MainScreenState extends State<MainScreen> {
 class Clipper extends CustomClipper<Rect> {
   @override
   Rect getClip(Size size) {
-    return Rect.fromLTRB(-50, -100, 230, 150);
+    return Rect.fromLTRB(-50.w, -100.h, 230.w, 150.h);
   }
 
   @override
@@ -122,7 +133,7 @@ class Clipper extends CustomClipper<Rect> {
 class Clipperr extends CustomClipper<Rect> {
   @override
   Rect getClip(Size size) {
-    return Rect.fromLTRB(180, -100, 400, 80);
+    return Rect.fromLTRB(180.w, -100.h, 400.w, 80.h);
   }
 
   @override
